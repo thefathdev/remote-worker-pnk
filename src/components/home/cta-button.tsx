@@ -11,7 +11,7 @@ export function CtaButton() {
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
       >
-        <g clip-path="url(#clip0_91_72)">
+        <g clipPath="url(#clip0_91_72)">
           <path
             d="M4.25 20.25H20.75"
             stroke="white"

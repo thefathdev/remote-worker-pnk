@@ -1,9 +1,4 @@
-import {
-  PiHandshake,
-  PiRocketLaunch,
-  PiShareNetwork,
-  PiUsers,
-} from "react-icons/pi";
+import { PiBooks, PiHandshake, PiRocketLaunch, PiUsers } from "react-icons/pi";
 
 const STATS = [
   { label: "Brands Collaboration", value: "30+" },
@@ -16,7 +11,7 @@ const FEATURES = [
   {
     title: "Get Networking",
     desc: "Connect with fellow remote workers, expand your professional network, and discover new collaboration opportunities.",
-    icon: <PiShareNetwork className="text-[#2B80CC] size-8" />,
+    icon: <PiUsers className="text-[#2B80CC] size-8" />,
     backgroundColor: "#E5F3FF",
   },
   {
@@ -28,7 +23,7 @@ const FEATURES = [
   {
     title: "Access to Resources",
     desc: "Get exclusive access to a variety of resources, including the latest info on tools and tech that can make your remote work life easier.",
-    icon: <PiUsers className="text-[#CCAA2C] size-8" />,
+    icon: <PiBooks className="text-[#CCAA2C] size-8" />,
     backgroundColor: "#FFF4CC",
   },
   {
@@ -66,6 +61,8 @@ export function About() {
           </div>
         ))}
       </div>
+
+      <div className="w-full h-px bg-[#F3F3F3]"></div>
 
       <div className="grid grid-cols-2 gap-4">
         {FEATURES.map(({ title, desc, icon, backgroundColor }) => (

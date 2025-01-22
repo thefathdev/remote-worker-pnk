@@ -1,4 +1,5 @@
 import { About } from "@/components/home/about";
+import { Activity } from "@/components/home/activity";
 import { Hero } from "@/components/home/hero";
 import { NavMenu } from "@/components/nav-menu";
 
@@ -11,6 +12,7 @@ export default function Home() {
       <div className="h-[300vh] pt-20 pr-[6.25rem] space-y-10 pb-[6.25rem]">
         <Hero />
         <About />
+        <Activity />
       </div>
     </div>
   );
