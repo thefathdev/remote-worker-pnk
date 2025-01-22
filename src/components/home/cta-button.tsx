@@ -1,15 +1,29 @@
 "use client";
 
+import { SparklesCore } from "../animated-ui/sparkles";
+
 export function CtaButton() {
   return (
-    <div className="flex gap-4 items-center p-4 rounded-full w-full bg-[#1C1C1C] text-white justify-center">
-      <span className="font-medium">Explore More</span>
+    <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-[#1C1C1C] text-white justify-center relative overflow-hidden">
+      {/* Sparkles */}
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity ease-in duration-400 delay-300">
+        <SparklesCore
+          background="transparent"
+          minSize={0.15}
+          maxSize={1}
+          particleDensity={1400}
+        />
+      </div>
+
+      <div className="absolute left-1/2 -translate-x-1/2 bg-white blur-[100px] h-16 w-72 bottom-0 translate-y-[calc(100%+20px)] opacity-0 group-hover:opacity-100 transition-all ease-in duration-500"></div>
+      <span className="font-medium relative">Explore More</span>
       <svg
         width="25"
         height="24"
         viewBox="0 0 25 24"
         fill="none"
         xmlns="http://www.w3.org/2000/svg"
+        className="relative"
       >
         <g clipPath="url(#clip0_91_72)">
           <path
