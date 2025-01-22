@@ -6,7 +6,7 @@ export function CtaButton() {
   return (
     <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-[#1C1C1C] text-white justify-center relative overflow-hidden">
       {/* Sparkles */}
-      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity ease-in duration-400 delay-300">
+      <div className="absolute inset-0 opacity-0 group-hover:opacity-50 transition-opacity ease-in duration-400 delay-300">
         <SparklesCore
           background="transparent"
           minSize={0.15}
@@ -15,6 +15,7 @@ export function CtaButton() {
         />
       </div>
 
+      <div className="absolute inset-0 bg-gradient-to-r via-50% via-transparent from-black/80 to-black/80"></div>
       <div className="absolute left-1/2 -translate-x-1/2 bg-white blur-[100px] h-16 w-72 bottom-0 translate-y-[calc(100%+20px)] opacity-0 group-hover:opacity-100 transition-all ease-in duration-500"></div>
       <span className="font-medium relative">Explore More</span>
       <svg
