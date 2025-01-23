@@ -68,7 +68,7 @@ export function About() {
         {FEATURES.map(({ title, desc, icon, backgroundColor }) => (
           <div
             key={title}
-            className="p-5 flex flex-col gap-5 border border-[#F3F3F3] rounded-[2.5rem]"
+            className="p-5 flex flex-col gap-5 border border-[#F3F3F3] rounded-[2.5rem] hover:bg-[#F8F9FA]"
           >
             <div
               className="size-14 rounded-full flex items-center justify-center"
