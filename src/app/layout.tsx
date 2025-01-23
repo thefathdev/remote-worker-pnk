@@ -8,9 +8,10 @@ const inter = Inter({
 });
 
 const satoshi = localFont({
-  src: "../assets/fonts/Satoshi-Variable.woff",
+  src: "../assets/fonts/Satoshi-Bold.woff",
   display: "swap",
   variable: "--font-satoshi",
+  weight: "700",
 });
 
 export const metadata: Metadata = {
