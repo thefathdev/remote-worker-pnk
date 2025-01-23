@@ -37,7 +37,7 @@ const FEATURES = [
 export function About() {
   return (
     <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] rounded-[2.5rem]">
-      <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-black">
+      <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C]">
         About Us
       </h2>
 
@@ -54,7 +54,7 @@ export function About() {
       <div className="grid grid-cols-4 gap-8">
         {STATS.map(({ label, value }) => (
           <div key={label} className="flex flex-col gap-3">
-            <h3 className="font-satoshi font-bold text-[3rem] leading-[1.2] text-black">
+            <h3 className="font-satoshi font-bold text-[3rem] leading-[1.2] text-[#1C1C1C]">
               {value}
             </h3>
             <p className="">{label}</p>
@@ -77,7 +77,7 @@ export function About() {
               {icon}
             </div>
             <div className="flex flex-col gap-4">
-              <h3 className="font-satoshi font-bold text-xl leading-[1.2] text-black">
+              <h3 className="font-satoshi font-bold text-xl leading-[1.2] text-[#1C1C1C]">
                 {title}
               </h3>
               <p>{desc}</p>
