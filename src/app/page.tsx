@@ -12,7 +12,7 @@ export default function Home() {
       <div className="sticky top-0 h-screen pt-20 pl-[6.25rem] ">
         <NavMenu />
       </div>
-      <div className=" pt-20 pr-[6.25rem] space-y-10 pb-[6.25rem]">
+      <div className=" pt-20 pr-[6.25rem] space-y-10 pb-[6.25rem] overflow-hidden">
         <Hero />
         <About />
         <Activity />
