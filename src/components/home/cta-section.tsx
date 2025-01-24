@@ -19,6 +19,14 @@ export function CtaSection() {
       <div className="flex gap-4 justify-center items-center w-full max-sm:flex-col ">
         {/* Be a speaker button */}
         <div className="flex gap-4 group items-center p-4 rounded-full w-full text-[#1C1C1C] max-w-[225px] bg-white justify-center relative overflow-hidden max-sm:max-w-none">
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLSeCzEEBXy0yQc5t2BgWIHl-rKUfsyen-rU8oXn6zc6alHVpkw/viewform"
+            className="absolute inset-0 z-20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="sr-only">Be a Speaker</span>
+          </a>
           {/* Gradient blur */}
           <span
             className="w-full block absolute inset-0 h-[70px] -bottom-0 opacity-0 group-hover:opacity-100 translate-y-[90%] transition-all duration-500 ease-in rounded-[100%] blur-[10px] group-hover:blur-[40px]"
@@ -27,12 +35,24 @@ export function CtaSection() {
                 "linear-gradient(to right, #008BFF 0%, #C258E7 21%, #F92C8A 40%, #FF1074 58%, #FF5500 77%, #BE0000 96%)",
             }}
           ></span>
-          <span className="font-medium relative">Be a Speaker</span>
+          <span className="font-medium relative" aria-hidden>
+            Be a Speaker
+          </span>
         </div>
 
         {/* Be a mentor button */}
         <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-transparent border border-white max-w-[225px] text-white hover:text-[#1c1c1c] justify-center relative overflow-hidden hover:bg-white max-sm:max-w-none">
-          <span className="font-medium relative ">Be a Mentor</span>
+          <a
+            href="https://docs.google.com/forms/d/e/1FAIpQLScNXO9gS0m22ZFKp7BQL0lXpzj5lFwwxK0XpiJkcCbtyVhDGA/viewform"
+            className="absolute inset-0 z-20"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <span className="sr-only">Be a Mentor</span>
+          </a>
+          <span className="font-medium relative " aria-hidden>
+            Be a Mentor
+          </span>
         </div>
       </div>
     </div>

@@ -2,35 +2,33 @@ import { Marquee } from "../animated-ui/marquee";
 
 const FIELDS = [
   "Digital Marketing",
-  "Team Work",
-  "Encryption",
-  "Security",
-  "Programming",
-  "Web Developer",
-  "Web Programming",
-  "UI/UX Design",
-  "Mobile Developer",
-  "SEO Specialist",
-  "Research & Development",
-  "Graphics Designer",
-  "Animation",
-  "Logo Design",
-  "3D Artist",
-  "Marketing",
-  "Content Management",
-  "Product Management",
-  "User Experience",
-  "Data Analysis",
-  "E-commerce",
-  "Sales Marketing",
-  "Social Media",
-  "Travel/Cargo",
-  "Outsourcing",
-  "Enterprise",
+  "Social Media Specialist",
   "Content Creator",
-  "Photography",
-  "Photography",
-  "Graphics",
+  "Meta Advertiser",
+  "Copywriter",
+  "Web Developer",
+  "UI UX Designer",
+  "Graphic Designer",
+  "3D Artist",
+  "Illustrator",
+  "Logo Designer",
+  "Animator",
+  "Fullstack Programmer",
+  "Data Analyst",
+  "Research And Development",
+  "SEO Specialist",
+  "Game Developer",
+  "Project Manager",
+  "Mobile Developer",
+  "Hacker",
+  "Marketplace Specialist",
+  "Architect",
+  "Human Capital Manager",
+  "Entrepreneur",
+  "Sales Marketing",
+  "Photographer",
+  "Videographer",
+  "English Tutor",
 ];
 
 export function WorkFields() {
@@ -53,13 +51,13 @@ export function WorkFields() {
             <Field key={index} label={field} />
           ))}
         </Marquee>
-        <Marquee className="p-0 [--duration:55s]">
-          {FIELDS.slice(16, 24).map((field, index) => (
+        <Marquee className="p-0 [--duration:30s]">
+          {FIELDS.slice(16, 22).map((field, index) => (
             <Field key={index} label={field} />
           ))}
         </Marquee>
         <Marquee reverse className="p-0 [--duration:20s]">
-          {FIELDS.slice(24).map((field, index) => (
+          {FIELDS.slice(22).map((field, index) => (
             <Field key={index} label={field} />
           ))}
         </Marquee>
