@@ -19,6 +19,14 @@ export default function Home() {
         <WorkFields />
         <Articles />
         <CtaSection />
+
+        <div className="w-full h-px bg-[#F3F3F3]"></div>
+        <footer className="flex items-center justify-between gap-5 flex-wrap">
+          <p className="leading-loose">
+            © 2025 Remote Worker Pontianak. All rights reserved.
+          </p>
+          <p className="leading-loose">Created by: Pipskiyy & Fath Code</p>
+        </footer>
       </div>
     </div>
   );
