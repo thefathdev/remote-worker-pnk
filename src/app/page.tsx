@@ -1,6 +1,7 @@
 import { About } from "@/components/home/about";
 import { Activity } from "@/components/home/activity";
 import { Articles } from "@/components/home/articles";
+import { CtaSection } from "@/components/home/cta-section";
 import { Hero } from "@/components/home/hero";
 import { WorkFields } from "@/components/home/work-fields";
 import { NavMenu } from "@/components/nav-menu";
@@ -17,6 +18,7 @@ export default function Home() {
         <Activity />
         <WorkFields />
         <Articles />
+        <CtaSection />
       </div>
     </div>
   );

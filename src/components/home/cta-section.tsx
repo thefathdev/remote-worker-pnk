@@ -1,0 +1,40 @@
+export function CtaSection() {
+  return (
+    <div className="p-7 flex flex-col gap-10 items-center justify-center border border-[#F3F3F3] relative rounded-[2.5rem] overflow-hidden min-h-[370px]">
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        className="absolute inset-0 object-cover h-full w-full"
+        alt=""
+        src="/cta.jpg"
+        loading="lazy"
+        decoding="async"
+      />
+      <div className="absolute inset-0 bg-[#1c1c1c] opacity-70"></div>
+
+      <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-white relative text-center">
+        Be a part of the Remote Worker Pontianak Community. <br /> Connect,
+        Collaborate, and Grow together!
+      </h2>
+
+      <div className="flex gap-4 justify-center items-center w-full">
+        {/* Be a speaker button */}
+        <div className="flex gap-4 group items-center p-4 rounded-full w-full text-[#1C1C1C] max-w-[225px] bg-white justify-center relative overflow-hidden">
+          {/* Gradient blur */}
+          <span
+            className="w-full block absolute inset-0 h-[70px] -bottom-0 opacity-0 group-hover:opacity-100 translate-y-[90%] transition-all duration-500 ease-in rounded-[100%] blur-[10px] group-hover:blur-[40px]"
+            style={{
+              backgroundImage:
+                "linear-gradient(to right, #008BFF 0%, #C258E7 21%, #F92C8A 40%, #FF1074 58%, #FF5500 77%, #BE0000 96%)",
+            }}
+          ></span>
+          <span className="font-medium relative">Be a Speaker</span>
+        </div>
+
+        {/* Be a mentor button */}
+        <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-transparent border border-white max-w-[225px] text-white hover:text-[#1c1c1c] justify-center relative overflow-hidden hover:bg-white">
+          <span className="font-medium relative ">Be a Mentor</span>
+        </div>
+      </div>
+    </div>
+  );
+}

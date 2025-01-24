@@ -16,7 +16,7 @@ export function CtaButton() {
       </div>
 
       <div className="absolute inset-0 bg-gradient-to-r via-50% via-transparent from-black/80 to-black/80"></div>
-      <div className="absolute left-1/2 -translate-x-1/2 bg-white blur-[100px] h-16 w-72 bottom-0 translate-y-[calc(100%+20px)] opacity-0 group-hover:opacity-100 transition-all ease-in duration-500"></div>
+      <div className="absolute left-1/2 -translate-x-1/2 bg-white rounded-[100%] blur-[100px] h-16 w-72 bottom-0 translate-y-[calc(100%+20px)] opacity-0 group-hover:opacity-100 transition-all ease-in duration-500"></div>
       <span className="font-medium relative">Explore More</span>
       <svg
         width="25"
