@@ -1,6 +1,6 @@
-import Image from "next/image";
 import { CtaButton } from "./cta-button";
 import { TextScramble } from "../animated-ui/text-scramble";
+import { HeroCarousel } from "./hero-carousel";
 
 export function Hero() {
   return (
@@ -20,24 +20,7 @@ export function Hero() {
       </div>
 
       {/* Hero Carousel */}
-
-      <div className=" bg-[#FBFBFB] rounded-[2.5rem] overflow-hidden relative">
-        <Image
-          src="/hero/hero-1.jpg"
-          alt=""
-          width={640}
-          height={640}
-          className="absolute inset-0 object-cover h-full"
-        />
-
-        <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-1.5">
-          <div className="bg-white h-3 w-10 rounded-full"></div>
-          <div className="bg-[#DFE2E4] opacity-80 h-3 w-3 rounded-full"></div>
-          <div className="bg-[#DFE2E4] opacity-80 h-3 w-3 rounded-full"></div>
-          <div className="bg-[#DFE2E4] opacity-80 h-3 w-3 rounded-full"></div>
-          <div className="bg-[#DFE2E4] opacity-80 h-3 w-3 rounded-full"></div>
-        </div>
-      </div>
+      <HeroCarousel />
     </div>
   );
 }
