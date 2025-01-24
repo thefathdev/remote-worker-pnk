@@ -35,7 +35,9 @@ export function Articles() {
       </div>
 
       {/* Mobile carousel */}
-      <ArticlesMobileCarousel />
+      <div className="sm:hidden">
+        <ArticlesMobileCarousel />
+      </div>
     </div>
   );
 }
