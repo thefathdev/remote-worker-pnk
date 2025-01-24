@@ -6,8 +6,16 @@ import { Hero } from "@/components/home/hero";
 import { Members } from "@/components/home/members";
 import { WorkFields } from "@/components/home/work-fields";
 import { NavMenu } from "@/components/nav-menu";
+import { sanityFetch } from "@/sanity/lib/live";
+import { MEMBERS_QUERY } from "@/sanity/lib/queries";
 
-export default function Home() {
+export default async function Home() {
+  const { data: members } = await sanityFetch({
+    query: MEMBERS_QUERY,
+  });
+
+  console.log(members);
+
   return (
     <div className="grid grid-cols-[330px_1fr] bg-white gap-5 max-w-screen max-sm:grid-cols-1 max-sm:gap-0">
       <div className="sticky top-0 h-screen pt-20 pl-[6.25rem] max-sm:px-4 max-sm:py-3 max-sm:h-auto max-sm:bg-white max-sm:z-10">
@@ -18,7 +26,7 @@ export default function Home() {
         <About />
         <Activity />
         <WorkFields />
-        <Members />
+        <Members members={members} />
         <Articles />
         <CtaSection />
 

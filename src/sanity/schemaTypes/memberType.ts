@@ -39,6 +39,7 @@ export const memberType = defineType({
     select: {
       title: "name",
       subtitle: "title",
+      media: "photo",
     },
   },
 });
