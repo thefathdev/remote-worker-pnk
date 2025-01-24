@@ -36,8 +36,8 @@ const FEATURES = [
 
 export function About() {
   return (
-    <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] rounded-[2.5rem]">
-      <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C]">
+    <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 max-sm:gap-5">
+      <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
         About Us
       </h2>
 
@@ -51,10 +51,10 @@ export function About() {
 
       <div className="w-full h-px bg-[#F3F3F3]"></div>
 
-      <div className="grid grid-cols-4 gap-8">
+      <div className="grid grid-cols-4 gap-8 max-sm:grid-cols-2">
         {STATS.map(({ label, value }) => (
           <div key={label} className="flex flex-col gap-3">
-            <h3 className="font-satoshi font-bold text-[3rem] leading-[1.2] text-[#1C1C1C]">
+            <h3 className="font-satoshi font-bold text-[3rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[2.25rem]">
               {value}
             </h3>
             <p className="">{label}</p>
@@ -64,11 +64,11 @@ export function About() {
 
       <div className="w-full h-px bg-[#F3F3F3]"></div>
 
-      <div className="grid grid-cols-2 gap-4">
+      <div className="grid grid-cols-2 gap-4 max-sm:grid-cols-1">
         {FEATURES.map(({ title, desc, icon, backgroundColor }) => (
           <div
             key={title}
-            className="p-5 flex flex-col gap-5 border border-[#F3F3F3] rounded-[2.5rem] hover:bg-[#F8F9FA]"
+            className="p-5 flex flex-col gap-5 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[1.25rem] hover:bg-[#F8F9FA]"
           >
             <div
               className="size-14 rounded-full flex items-center justify-center"

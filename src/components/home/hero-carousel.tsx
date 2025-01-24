@@ -70,7 +70,7 @@ export const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden" ref={wrapperRef}>
+    <div className="relative overflow-hidden max-sm:h-[350px]" ref={wrapperRef}>
       <motion.div
         drag="x"
         dragConstraints={{
@@ -115,7 +115,7 @@ const Images = ({ imgIndex, height }: { imgIndex: number; height: number }) => {
               opacity: imgIndex === idx ? 1 : 0.25,
             }}
             transition={SPRING_OPTIONS}
-            className="_aspect-square w-full shrink-0 rounded-[2.5rem] bg-[#FBFBFB] object-cover"
+            className="_aspect-square w-full shrink-0 rounded-[2.5rem] max-sm:rounded-[2rem] bg-[#FBFBFB] object-cover"
           />
         );
       })}
