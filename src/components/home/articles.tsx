@@ -1,4 +1,6 @@
-const ARTICLES = [
+import { ArticlesMobileCarousel } from "./articles-mobile-carousel";
+
+export const ARTICLES = [
   {
     source: "Pontianak Post",
     title:
@@ -21,7 +23,7 @@ const ARTICLES = [
 
 export function Articles() {
   return (
-    <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] bg-[#FBFBFB] rounded-[2.5rem]">
+    <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] bg-[#FBFBFB] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 ">
       <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
         Our Latest News and Articles
       </h2>
@@ -31,6 +33,9 @@ export function Articles() {
           <ArticleCard key={article.title} {...article} />
         ))}
       </div>
+
+      {/* Mobile carousel */}
+      <ArticlesMobileCarousel />
     </div>
   );
 }
@@ -43,7 +48,7 @@ type ArticleCardProps = {
   readMoreLink: string;
 };
 
-const ArticleCard = ({
+export const ArticleCard = ({
   source,
   title,
   description,
@@ -51,12 +56,12 @@ const ArticleCard = ({
   readMoreLink,
 }: ArticleCardProps) => (
   <div className="p-5 gap-5 flex flex-col bg-white rounded-[1.25rem]">
-    <div className="rounded-[0.75rem] w-full aspect-video bg-[#F3F3F3] relative overflow-hidden">
+    <div className="rounded-[0.75rem] w-full aspect-video bg-[#F3F3F3] relative overflow-hidden max-sm:h-[230px] max-sm:aspect-auto">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         src={image}
         alt={title}
-        className="object-cover w-full h-full"
+        className="object-cover w-full h-full "
         loading="lazy"
         decoding="async"
       />

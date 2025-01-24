@@ -1,22 +1,9 @@
 "use client";
 
-import React, {
-  Dispatch,
-  SetStateAction,
-  useEffect,
-  useRef,
-  useState,
-} from "react";
+import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { spring } from "motion";
-
-const imgs = [
-  "/hero/hero-1.jpg",
-  "/hero/hero-2.jpg",
-  "/hero/hero-3.jpg",
-  "/hero/hero-4.jpg",
-  "/hero/hero-5.jpg",
-];
+import { ACTIVITIES } from "./activity";
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 3;
@@ -28,21 +15,12 @@ const SPRING_OPTIONS = {
   duration: 0.8,
 };
 
-export const HeroCarousel = () => {
+export const ActivityMobileCarousel = () => {
   const [imgIndex, setImgIndex] = useState(0);
-
-  const [wrapperHeight, setWrapperHeight] = useState(0);
-  const wrapperRef = useRef<HTMLDivElement>(null);
 
   const [isInteracted, setIsInteracted] = useState(false);
 
   const dragX = useMotionValue(0);
-
-  useEffect(() => {
-    if (wrapperRef.current) {
-      setWrapperHeight(wrapperRef.current.clientHeight);
-    }
-  }, []);
 
   useEffect(() => {
     if (isInteracted) {
@@ -54,7 +32,7 @@ export const HeroCarousel = () => {
 
       if (x === 0) {
         setImgIndex((pv) => {
-          if (pv === imgs.length - 1) {
+          if (pv === ACTIVITIES.length - 1) {
             return 0;
           }
           return pv + 1;
@@ -68,7 +46,7 @@ export const HeroCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -DRAG_BUFFER && imgIndex < imgs.length - 1) {
+    if (x <= -DRAG_BUFFER && imgIndex < ACTIVITIES.length - 1) {
       setImgIndex((pv) => pv + 1);
       setIsInteracted(true);
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
@@ -78,7 +56,7 @@ export const HeroCarousel = () => {
   };
 
   return (
-    <div className="relative overflow-hidden max-sm:h-[350px]" ref={wrapperRef}>
+    <div className="relative overflow-hidden">
       <motion.div
         drag="x"
         dragConstraints={{
@@ -95,7 +73,7 @@ export const HeroCarousel = () => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} height={wrapperHeight} />
+        <Images imgIndex={imgIndex} />
       </motion.div>
 
       <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
@@ -104,27 +82,46 @@ export const HeroCarousel = () => {
   );
 };
 
-const Images = ({ imgIndex, height }: { imgIndex: number; height: number }) => {
+const Images = ({ imgIndex }: { imgIndex: number }) => {
   return (
     <>
-      {imgs.map((imgSrc, idx) => {
+      {ACTIVITIES.map(({ imageSrc, desc, name }, idx) => {
         return (
           <motion.div
             key={idx}
-            style={{
-              backgroundImage: `url(${imgSrc})`,
-              backgroundSize: "cover",
-              backgroundPosition: "center",
-              height: height,
-            }}
+            style={
+              {
+                // backgroundImage: `url(${imageSrc})`,
+                // backgroundSize: "cover",
+                // backgroundPosition: "center",
+                // height: height,
+              }
+            }
             animate={{
               scale: imgIndex === idx ? 1 : 0.85,
               // filter: imgIndex === idx ? "blur(0px)" : "blur(10px)",
               opacity: imgIndex === idx ? 1 : 0.25,
             }}
             transition={SPRING_OPTIONS}
-            className="_aspect-square w-full shrink-0 rounded-[2.5rem] max-sm:rounded-[2rem] bg-[#FBFBFB] object-cover"
-          />
+            className="w-full shrink-0 rounded-[2.5rem] max-sm:rounded-[2rem]  flex flex-col gap-4"
+          >
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img
+              src={imageSrc}
+              alt={name}
+              className="h-[230px] w-full rounded-[1.25rem] object-cover"
+              loading="lazy"
+              decoding="async"
+            />
+
+            <div className="border border-[#F3F3F3] rounded-[1.25rem] p-5 flex flex-col gap-4">
+              <h3 className="font-satoshi font-bold text-xl leading-[1.2] text-[#1C1C1C]">
+                {name}
+              </h3>
+
+              <p>{desc}</p>
+            </div>
+          </motion.div>
         );
       })}
     </>
@@ -139,16 +136,14 @@ const Dots = ({
   setImgIndex: Dispatch<SetStateAction<number>>;
 }) => {
   return (
-    <div className="absolute flex w-full justify-center gap-1.5 z-20 bottom-6">
-      {imgs.map((_, idx) => {
+    <div className="mt-3 flex w-full justify-center gap-1.5">
+      {ACTIVITIES.map((_, idx) => {
         return (
           <button
             key={idx}
             onClick={() => setImgIndex(idx)}
             className={`h-3 rounded-full transition-all duration-[800ms]  ${
-              idx === imgIndex
-                ? "bg-white w-10 opacity-100"
-                : "bg-[#DFE2E4] w-3 opacity-80"
+              idx === imgIndex ? "bg-[#DFE2E4] w-10" : "bg-[#EEF0F2] w-3"
             }`}
             style={{
               transitionTimingFunction: `${spring(0.8, 0)}`,

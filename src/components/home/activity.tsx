@@ -2,8 +2,9 @@
 
 import { cn } from "@/lib/utils";
 import { CSSProperties, useState } from "react";
+import { ActivityMobileCarousel } from "./activity-mobile-carousel";
 
-const ACTIVITIES = [
+export const ACTIVITIES = [
   {
     name: "We Work",
     desc: "A place to work together every WEdnesday",
@@ -82,6 +83,11 @@ export function Activity() {
             className="absolute inset-0 object-cover h-full w-full"
           />
         </div>
+      </div>
+
+      {/* Mobile carousel */}
+      <div className="sm:hidden">
+        <ActivityMobileCarousel />
       </div>
     </div>
   );
