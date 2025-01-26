@@ -14,10 +14,19 @@ export function Members({ members }: { members: MEMBERS_QUERYResult }) {
       </div>
 
       <div className="flex flex-col overflow-hidden gap-5 max-w-full">
-        <Marquee className="p-0 [--duration:30s]">
+        <Marquee className="p-0 [--duration:50s]" pauseOnHover>
           {members.map((member) => (
             <MemberCard key={member._id} member={member} />
           ))}
+          {/* Others */}
+          <div className="p-3 rounded-[1.25rem] overflow-hidden flex items-center justify-center h-[300px] w-[250px] relative">
+            {/* Filter */}
+            <div className="bg-gradient-to-tr from-[#00B3E5] to-[#FF6112] opacity-15 absolute inset-0"></div>
+
+            <p className="font-satoshi font-bold text-[1.75rem] leading-[1.2] text-[#8E9194]">
+              and others.
+            </p>
+          </div>
         </Marquee>
       </div>
     </div>
