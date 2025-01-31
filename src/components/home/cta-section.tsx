@@ -53,7 +53,7 @@ export function CtaSection() {
         </div>
 
         {/* Be a mentor button */}
-        <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-transparent border border-white max-w-[225px] text-white hover:text-[#1c1c1c] justify-center relative overflow-hidden hover:bg-white max-sm:max-w-none">
+        <div className="flex gap-4 group items-center p-4 rounded-full w-full bg-transparent border border-white max-w-[225px] text-white hover:text-[#1c1c1c] justify-center relative overflow-hidden transition-colors ease-in-out hover:border-transparent hover:bg-white max-sm:max-w-none shadow-[inset_0px_-4px_10px_0px_rgba(0,0,0,0.25)]">
           <a
             href="https://docs.google.com/forms/d/e/1FAIpQLScNXO9gS0m22ZFKp7BQL0lXpzj5lFwwxK0XpiJkcCbtyVhDGA/viewform"
             className="absolute inset-0 z-20"
