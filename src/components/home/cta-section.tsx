@@ -1,3 +1,5 @@
+import { SparklesCore } from "../animated-ui/sparkles";
+
 export function CtaSection() {
   return (
     <div className="p-7 flex flex-col gap-10 items-center justify-center border border-[#F3F3F3] relative rounded-[2.5rem] overflow-hidden min-h-[370px] max-sm:p-4 max-sm:rounded-[2rem] max-sm:gap-10 max-sm:py-14">
@@ -35,6 +37,16 @@ export function CtaSection() {
                 "linear-gradient(to right, #008BFF 0%, #C258E7 21%, #F92C8A 40%, #FF1074 58%, #FF5500 77%, #BE0000 96%)",
             }}
           ></span>
+          {/* Sparkles */}
+          <div className="absolute inset-0 opacity-0 group-hover:opacity-35 transition-opacity ease-in duration-400 delay-300">
+            <SparklesCore
+              background="transparent"
+              minSize={0.15}
+              maxSize={1}
+              particleDensity={1400}
+              particleColor="#1C1C1C"
+            />
+          </div>
           <span className="font-medium relative" aria-hidden>
             Be a Speaker
           </span>

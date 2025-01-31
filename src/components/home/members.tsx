@@ -13,7 +13,7 @@ export function Members({ members }: { members: MEMBERS_QUERYResult }) {
         <p>We appreciate the most active member in our community.</p>
       </div>
 
-      <div className="flex flex-col overflow-hidden gap-5 max-w-full">
+      <div className="flex flex-col overflow-hidden gap-5 max-w-full relative">
         <Marquee className="p-0 [--duration:50s]">
           {members.map((member) => (
             <MemberCard key={member._id} member={member} />
@@ -28,6 +28,9 @@ export function Members({ members }: { members: MEMBERS_QUERYResult }) {
             </p>
           </div>
         </Marquee>
+
+        <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-white/70 to-white/0 w-[5.5rem] max-sm:w-10"></div>
+        <div className="absolute inset-y-0 right-0 bg-gradient-to-r to-white/70 from-white/0 w-[5.5rem] max-sm:w-10"></div>
       </div>
     </div>
   );
