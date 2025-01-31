@@ -14,7 +14,7 @@ export default async function Home() {
     query: MEMBERS_QUERY,
   });
 
-  console.log(members);
+  // console.log(members);
 
   return (
     <div className="grid grid-cols-[330px_1fr] bg-white gap-5 max-w-screen max-sm:grid-cols-1 max-sm:gap-0">

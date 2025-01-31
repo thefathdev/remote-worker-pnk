@@ -14,7 +14,7 @@ export function Members({ members }: { members: MEMBERS_QUERYResult }) {
       </div>
 
       <div className="flex flex-col overflow-hidden gap-5 max-w-full">
-        <Marquee className="p-0 [--duration:50s]" pauseOnHover>
+        <Marquee className="p-0 [--duration:50s]">
           {members.map((member) => (
             <MemberCard key={member._id} member={member} />
           ))}
