@@ -27,9 +27,9 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" className="scroll-smooth">
       <body
-        className={`${inter.className} ${satoshi.variable} antialiased leading-normal text-[#646668] bg-white`}
+        className={`${inter.className} ${satoshi.variable} antialiased leading-normal text-[#646668]  bg-white`}
       >
         {children}
         <SanityLive />

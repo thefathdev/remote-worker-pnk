@@ -4,7 +4,10 @@ import { Marquee } from "../animated-ui/marquee";
 
 export function Members({ members }: { members: MEMBERS_QUERYResult }) {
   return (
-    <div className="py-7 flex flex-col gap-8 max-sm:gap-5 border border-[#F3F3F3] rounded-[2.5rem] max-w-[calc(100vw-450px)] max-sm:max-w-[calc(100vw-32px)] max-sm:rounded-[2rem] max-sm:py-4">
+    <section
+      id="members"
+      className="py-7 flex flex-col gap-8 max-sm:gap-5 border border-[#F3F3F3] rounded-[2.5rem] max-w-[calc(100vw-450px)] max-sm:max-w-[calc(100vw-32px)] max-sm:rounded-[2rem] max-sm:py-4"
+    >
       <div className="px-7 max-sm:px-4 flex flex-col gap-8 max-sm:gap-5">
         <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
           Our Active Members
@@ -32,7 +35,7 @@ export function Members({ members }: { members: MEMBERS_QUERYResult }) {
         <div className="absolute inset-y-0 left-0 bg-gradient-to-r from-white/70 to-white/0 w-[5.5rem] max-sm:w-10"></div>
         <div className="absolute inset-y-0 right-0 bg-gradient-to-r to-white/70 from-white/0 w-[5.5rem] max-sm:w-10"></div>
       </div>
-    </div>
+    </section>
   );
 }
 

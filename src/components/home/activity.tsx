@@ -35,7 +35,10 @@ export function Activity() {
   const [activeIndex, setActiveIndex] = useState(0);
 
   return (
-    <div className="p-7 flex flex-col gap-10 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4">
+    <section
+      id="main-activity"
+      className="p-7 flex flex-col gap-10 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4"
+    >
       <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
         Discover Our Activity
       </h2>
@@ -56,7 +59,7 @@ export function Activity() {
               <h3
                 className={cn(
                   "font-satoshi font-bold text-xl leading-[1.2] text-[#1C1C1C] _transition-colors _ease-in-out _duration-300",
-                  activeIndex === index ? "text-white" : ""
+                  activeIndex === index ? "text-white" : "",
                 )}
               >
                 {name}
@@ -64,7 +67,7 @@ export function Activity() {
               <p
                 className={cn(
                   // "_transition-colors ease-in-out duration-300",
-                  activeIndex === index ? "font-medium text-white" : ""
+                  activeIndex === index ? "font-medium text-white" : "",
                 )}
               >
                 {desc}
@@ -89,6 +92,6 @@ export function Activity() {
       <div className="sm:hidden">
         <ActivityMobileCarousel />
       </div>
-    </div>
+    </section>
   );
 }

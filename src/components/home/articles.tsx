@@ -23,7 +23,10 @@ export const ARTICLES = [
 
 export function Articles() {
   return (
-    <div className="p-7 flex flex-col gap-8 border border-[#F3F3F3] bg-[#FBFBFB] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 ">
+    <section
+      id="articles"
+      className="p-7 flex flex-col gap-8 border border-[#F3F3F3] bg-[#FBFBFB] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 "
+    >
       <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
         Our Latest News and Articles
       </h2>
@@ -38,7 +41,7 @@ export function Articles() {
       <div className="sm:hidden">
         <ArticlesMobileCarousel />
       </div>
-    </div>
+    </section>
   );
 }
 
