@@ -38,7 +38,7 @@ export function About() {
   return (
     <section
       id="about-us"
-      className="p-7 flex flex-col gap-8 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 max-sm:gap-5"
+      className="p-7 max-sm:scroll-mt-10 flex flex-col gap-8 border border-[#F3F3F3] rounded-[2.5rem] max-sm:rounded-[2rem] max-sm:p-4 max-sm:gap-5"
     >
       <h2 className="font-satoshi font-bold text-[2rem] leading-[1.2] text-[#1C1C1C] max-sm:text-[1.75rem]">
         About Us

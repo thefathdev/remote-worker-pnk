@@ -2,7 +2,7 @@ import { SparklesCore } from "../animated-ui/sparkles";
 
 export function CtaSection() {
   return (
-    <div className="p-7 flex flex-col gap-10 items-center justify-center border border-[#F3F3F3] relative rounded-[2.5rem] overflow-hidden min-h-[370px] max-sm:p-4 max-sm:rounded-[2rem] max-sm:gap-10 max-sm:py-14">
+    <div className="p-7 max-sm:scroll-mt-10 flex flex-col gap-10 items-center justify-center border border-[#F3F3F3] relative rounded-[2.5rem] overflow-hidden min-h-[370px] max-sm:p-4 max-sm:rounded-[2rem] max-sm:gap-10 max-sm:py-14">
       {/* eslint-disable-next-line @next/next/no-img-element */}
       <img
         className="absolute inset-0 object-cover h-full w-full"
