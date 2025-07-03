@@ -1,27 +1,15 @@
+import Link from "next/link";
+import { POSTS_QUERYResult } from "../../../sanity.types";
 import { ArticlesMobileCarousel } from "./articles-mobile-carousel";
+import Image from "next/image";
 
-export const ARTICLES = [
-  {
-    source: "Pontianak Post",
-    title:
-      "Melihat Eksistensi Komunitas Remote Worker Pontianak, Jadi Wadah Bagi Pekerja Jarak Jauh",
-    description:
-      "Komunitas Remote Worker Pontianak terus berkembang, menjadi tempat berkumpulnya talenta-talenta digital muda yang siap bersaing secara global...",
-    image: "/articles/article-1.jpg",
-    readMoreLink: "#",
-  },
-  {
-    source: "Pontinesia",
-    title:
-      "Mengenal Komunitas Remote Worker Pontianak: Tempat Berkumpulnya Talenta Digital Lokal",
-    description:
-      "Sebagian orang harus berangkat kerja pagi-pagi sekali. Lebih awal lebih baik lagi, agar menghindari keramaian di beberapa titik tertentu. Khususnya bagi masyaraka...",
-    image: "/articles/article-2.jpg",
-    readMoreLink: "#",
-  },
-];
+type ArticlesProps = {
+  data: POSTS_QUERYResult;
+};
 
-export function Articles() {
+export function Articles({ data }: ArticlesProps) {
+  if (!data) return null;
+
   return (
     <section
       id="articles"
@@ -32,40 +20,31 @@ export function Articles() {
       </h2>
 
       <div className="grid grid-cols-2 gap-5 max-sm:hidden">
-        {ARTICLES.map((article) => (
-          <ArticleCard key={article.title} {...article} />
+        {data.map((article) => (
+          <ArticleCard key={article.title} article={article} />
         ))}
       </div>
 
       {/* Mobile carousel */}
       <div className="sm:hidden">
-        <ArticlesMobileCarousel />
+        <ArticlesMobileCarousel data={data} />
       </div>
     </section>
   );
 }
 
 type ArticleCardProps = {
-  source: string;
-  title: string;
-  description: string;
-  image: string;
-  readMoreLink: string;
+  article: NonNullable<POSTS_QUERYResult>[number];
 };
 
-export const ArticleCard = ({
-  source,
-  title,
-  description,
-  image,
-  readMoreLink,
-}: ArticleCardProps) => (
+export const ArticleCard = ({ article }: ArticleCardProps) => (
   <div className="p-5 gap-5 flex flex-col bg-white rounded-[1.25rem]">
     <div className="rounded-[0.75rem] w-full aspect-video bg-[#F3F3F3] relative overflow-hidden max-sm:h-[230px] max-sm:aspect-auto">
       {/* eslint-disable-next-line @next/next/no-img-element */}
-      <img
-        src={image}
-        alt={title}
+      <Image
+        src={article.mainImage ?? ""}
+        alt={article.title ?? ""}
+        fill
         className="object-cover w-full h-full "
         loading="lazy"
         decoding="async"
@@ -73,22 +52,29 @@ export const ArticleCard = ({
     </div>
 
     <div className="flex flex-col gap-3">
-      <span className="py-2 px-4 border rounded-full border-[#F3F3F3] w-fit font-medium text-[#1C1C1C]">
-        {source}
-      </span>
+      <div className="py-1 flex items-center gap-2 px-2 border text-xs rounded-full border-[#F3F3F3] w-fit font-medium text-[#1C1C1C]">
+        {article.author?.image && (
+          <Image
+            src={article.author?.image ?? ""}
+            alt={article.author?.name ?? ""}
+            width={10}
+            height={10}
+            className="rounded-full"
+          />
+        )}
+        {article.author?.name}
+      </div>
 
       <h3 className="font-satoshi font-bold text-xl leading-[1.2] text-[#1C1C1C]">
-        {title}
+        {article.title}
       </h3>
-
-      <p>{description}</p>
     </div>
 
-    <a
-      href={readMoreLink}
+    <Link
+      href={`/posts/${article.slug?.current}`}
       className="font-satoshi font-bold underline text-[#1C1C1C] underline-offset-4"
     >
       Read More
-    </a>
+    </Link>
   </div>
 );

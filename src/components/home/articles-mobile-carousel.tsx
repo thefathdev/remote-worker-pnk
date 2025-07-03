@@ -3,7 +3,8 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from "react";
 import { motion, useMotionValue } from "framer-motion";
 import { spring } from "motion";
-import { ArticleCard, ARTICLES } from "./articles";
+import { ArticleCard } from "./articles";
+import { POSTS_QUERYResult } from "../../../sanity.types";
 
 const ONE_SECOND = 1000;
 const AUTO_DELAY = ONE_SECOND * 3;
@@ -15,7 +16,13 @@ const SPRING_OPTIONS = {
   duration: 0.8,
 };
 
-export const ArticlesMobileCarousel = () => {
+type ArticlesMobileCarouselProps = {
+  data: POSTS_QUERYResult;
+};
+
+export const ArticlesMobileCarousel = ({
+  data,
+}: ArticlesMobileCarouselProps) => {
   const [imgIndex, setImgIndex] = useState(0);
 
   const [isInteracted, setIsInteracted] = useState(false);
@@ -32,7 +39,7 @@ export const ArticlesMobileCarousel = () => {
 
       if (x === 0) {
         setImgIndex((pv) => {
-          if (pv === ARTICLES.length - 1) {
+          if (pv === data.length - 1) {
             return 0;
           }
           return pv + 1;
@@ -46,7 +53,7 @@ export const ArticlesMobileCarousel = () => {
   const onDragEnd = () => {
     const x = dragX.get();
 
-    if (x <= -DRAG_BUFFER && imgIndex < ARTICLES.length - 1) {
+    if (x <= -DRAG_BUFFER && imgIndex < data.length - 1) {
       setImgIndex((pv) => pv + 1);
       setIsInteracted(true);
     } else if (x >= DRAG_BUFFER && imgIndex > 0) {
@@ -54,6 +61,8 @@ export const ArticlesMobileCarousel = () => {
       setIsInteracted(true);
     }
   };
+
+  if (!data) return null;
 
   return (
     <div className="relative overflow-hidden">
@@ -73,19 +82,24 @@ export const ArticlesMobileCarousel = () => {
         onDragEnd={onDragEnd}
         className="flex cursor-grab items-center active:cursor-grabbing"
       >
-        <Images imgIndex={imgIndex} />
+        <Images imgIndex={imgIndex} data={data} />
       </motion.div>
 
-      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} />
+      <Dots imgIndex={imgIndex} setImgIndex={setImgIndex} data={data} />
       {/* <GradientEdges /> */}
     </div>
   );
 };
 
-const Images = ({ imgIndex }: { imgIndex: number }) => {
+type ImagesProps = {
+  imgIndex: number;
+  data: POSTS_QUERYResult;
+};
+
+const Images = ({ imgIndex, data }: ImagesProps) => {
   return (
     <>
-      {ARTICLES.map((article, idx) => {
+      {data.map((article, idx) => {
         return (
           <motion.div
             key={idx}
@@ -105,7 +119,7 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
             transition={SPRING_OPTIONS}
             className="w-full shrink-0"
           >
-            <ArticleCard {...article} />
+            <ArticleCard article={article} />
           </motion.div>
         );
       })}
@@ -113,16 +127,16 @@ const Images = ({ imgIndex }: { imgIndex: number }) => {
   );
 };
 
-const Dots = ({
-  imgIndex,
-  setImgIndex,
-}: {
+type DotsProps = {
   imgIndex: number;
   setImgIndex: Dispatch<SetStateAction<number>>;
-}) => {
+  data: POSTS_QUERYResult;
+};
+
+const Dots = ({ imgIndex, setImgIndex, data }: DotsProps) => {
   return (
     <div className="mt-3 flex w-full justify-center gap-1.5">
-      {ARTICLES.map((_, idx) => {
+      {data.map((_, idx) => {
         return (
           <button
             key={idx}
