@@ -1,7 +1,11 @@
 import { defineQuery } from "next-sanity";
 
 export const MEMBERS_QUERY = defineQuery(
-  `*[_type == "members"] | order(_createdAt asc)`
+  `*[_type == "members"] | order(_createdAt asc)`,
+);
+
+export const BRANDS_QUERY = defineQuery(
+  `*[_type == "brands"] | order(_createdAt asc)`,
 );
 
 export const POSTS_QUERY =
