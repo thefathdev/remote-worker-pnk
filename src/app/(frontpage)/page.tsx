@@ -10,6 +10,8 @@ import { client } from "@/sanity/lib/client";
 import { sanityFetch } from "@/sanity/lib/live";
 import { MEMBERS_QUERY, BRANDS_QUERY, POSTS_QUERY } from "@/sanity/lib/queries";
 
+export const revalidate = 300; // Revalidate this page every 5 minutes
+
 export default async function Home() {
   const { data: members } = await sanityFetch({
     query: MEMBERS_QUERY,
